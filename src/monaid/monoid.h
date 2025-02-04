@@ -2,8 +2,8 @@
 
 #include <concepts>
 
-#include "lplus/curry.h"
-#include "lplus/params.h"
+#include "monaid/curry.h"
+#include "monaid/params.h"
 
 constexpr const auto mempty{Empty{}};//Monoid
 

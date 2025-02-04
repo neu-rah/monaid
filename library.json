@@ -1,0 +1,26 @@
+{
+  "name": "Monaid",
+  "version": "0.0.1",
+  "description": "Monads and monoids under C++23",
+  "keywords": "functional programing",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/neu-rah/monaid.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Rui Azevedo",
+      "email": "ruihfazevedo@gmail.com",
+      "url": "https://github.com/neu-rah",
+      "maintainer": true
+    }
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/neu-rah/monaid/readme.md",
+  "dependencies": {
+  },
+  "frameworks": "*",
+  "platforms": "*"
+}

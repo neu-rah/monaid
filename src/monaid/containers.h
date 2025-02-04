@@ -12,8 +12,8 @@
 #include <utility>
 #include <type_traits>
 #include <iterator>
-// #include "lplus/monoid.h"
-// #include "lplus/monad.h"
+// #include "monaid/monoid.h"
+// #include "monaid/monad.h"
 
 //print a container--
 // template<typename Out,template<typename> class M,typename O,template<O, typename ALLOC=std::allocator<O> > class C>

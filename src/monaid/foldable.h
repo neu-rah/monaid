@@ -1,6 +1,6 @@
 #pragma once
 
-#include "lplus/curry.h"
+#include "monaid/curry.h"
 
 struct Foldable {
   // foldMap :: Monoid m => (a -> m) -> t a -> m 

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "lplus/base.h"
-#include "lplus/curry.h"
-#include "lplus/params.h"
-#include "lplus/monoid.h"
-#include "lplus/monad.h"
-#include "lplus/containers.h"
-#include "lplus/maybe.h"
-#include "lplus/either.h"
-#include "lplus/foldable.h"
+#include "monaid/base.h"
+#include "monaid/curry.h"
+#include "monaid/params.h"
+#include "monaid/monoid.h"
+#include "monaid/monad.h"
+#include "monaid/containers.h"
+#include "monaid/maybe.h"
+#include "monaid/either.h"
+#include "monaid/foldable.h"
 
 auto _mappend(auto& a,auto& b) {return __mappend(a,b);};
 auto _mappend(auto&& a,auto&& b) {return __mappend(fw$(a),fw$(b));};
