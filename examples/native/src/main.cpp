@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+//library tests are also included in this example (folder /test)
+
 auto _const{$([](auto o,auto) {return o;})};
 
 int main() {

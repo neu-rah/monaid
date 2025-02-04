@@ -2,7 +2,7 @@
   "name": "Monaid",
   "version": "0.0.1",
   "description": "Monads and monoids under C++23",
-  "keywords": "functional programing",
+  "keywords": "functional programing, ",
   "repository":
   {
     "type": "git",
@@ -18,7 +18,7 @@
     }
   ],
   "license": "MIT",
-  "homepage": "https://github.com/neu-rah/monaid/readme.md",
+  "homepage": "https://github.com/neu-rah/monaid/",
   "dependencies": {
   },
   "frameworks": "*",
