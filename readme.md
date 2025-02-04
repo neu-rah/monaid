@@ -44,6 +44,7 @@ int main() {
 ```
 output:
 ```
+Monad bind
 successful computation:Just 12.4
 failing computation:Nothing
 Functor fmap

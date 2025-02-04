@@ -19,6 +19,13 @@ int main() {
       >>( [](auto o) {return pure((double)3.1*o);} )//changing type int->double
   )<<endl;
 
+  cout<<"failing computation with error message:"<<(
+    Either<int,const char*>(2)
+      >>( [](auto o) {return pure(2*o);})
+      >>(_const(Left<int,const char*>("failing, just because.")))//computation that will fail!
+      >>( [](auto o) {return pure((double)3.1*o);} )//changing type int->double
+  )<<endl;
+
   cout<<"Functor fmap"<<endl;
   const auto calc_age=$([](auto year,auto born) {return year-born;});//curried lambda
   const auto age=calc_age(2025);//partial application
@@ -30,5 +37,7 @@ int main() {
   )<<endl;
 
   cout<<"mappend strings (std container):"<<(mappend(string("ok"),string(", let's go...")))<<endl;
+
+
   return 0;
 }

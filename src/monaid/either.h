@@ -9,6 +9,7 @@ template<typename R,typename L>
 struct Either:Monad<Either>,Monoid {
   using Left=L;
   using Right=R;
+  using Type=R;
   union {
     Left m_left;
     Right m_right;
@@ -29,10 +30,12 @@ struct Either:Monad<Either>,Monoid {
     if(m_isRight) return Either<decltype(f(m_right)),L>(f(m_right));
     else return Either<decltype(f(m_right)),L>(m_left);
   }
-  auto bind(const auto& f) const {
-    if(m_isRight) return Either<decltype(f(m_right)),L>(f(m_right));
-    else return Either<decltype(f(m_right)),L>{m_left};
+  auto bind(const auto& f) const requires(!std::is_same_v<R,Empty>) {
+    if(m_isRight) return Either<typename decltype(f(m_right))::Type,L>(f(m_right));
+    else return Either<typename decltype(f(m_right))::Type,L>{m_left};
   }
+  auto bind(const auto& f) requires(std::is_same_v<R,Empty>) 
+    {return *this;}
   template<typename F> auto operator>>(const F f) const {return bind(f);};
   auto liftM2(const auto& f,auto&& mb) {
     if(m_isRight&&mb.m_isRight)
