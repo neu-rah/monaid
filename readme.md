@@ -2,6 +2,17 @@
 
 Implemented this stuff while exploring C++23, just for fun
 
+## Monoidal Functions
+- `mempty`: Represents an empty value for a monoid.
+- `mappend`: Combines two monoid values into one.
+- `mconcat`: Combines a list of monoid values into one.
+
+## Monadic Functions
+- `pure`: Wraps a value into a monadic context.
+- `fmap`: Applies a function to the value inside a functor.
+- `mbind`: Binds a function to the value inside a monad.
+- `liftM2`: Lifts a binary function into a monadic context.
+- `>>` operator: same as `mbind`
 
 ## examples
 
