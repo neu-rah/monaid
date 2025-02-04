@@ -30,6 +30,8 @@ template<typename O> concept aMonoid
   =requires(O o) { {o.mappend(O{})}->std::same_as<O&>; };
 template<typename O> concept aFunctor
   =requires(O o) { {o.fmap([](auto o){return o;}) }; };
+template<typename O> concept aMonad
+  =requires(O o) { {o.bind([](auto o){return o;}) }; };
 template<typename O> concept aFoldable
   =requires(O o) { {o.foldr([](auto a,auto b){return b;},typename O::value_type{})}; };
 template<typename O> concept aContainer

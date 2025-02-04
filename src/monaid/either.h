@@ -1,7 +1,8 @@
 #pragma once
 
-#include "monad.h"
-#include "monoid.h"
+#include "monaid/monad.h"
+#include "monaid/monoid.h"
+
 #include <functional>
 
 template<typename R,typename L>
@@ -32,6 +33,7 @@ struct Either:Monad<Either>,Monoid {
     if(m_isRight) return Either<decltype(f(m_right)),L>(f(m_right));
     else return Either<decltype(f(m_right)),L>{m_left};
   }
+  template<typename F> auto operator>>(const F f) const {return bind(f);};
   auto liftM2(const auto& f,auto&& mb) {
     if(m_isRight&&mb.m_isRight)
       return Either<decltype(f(m_right,mb.m_right)),L>

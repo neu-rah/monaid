@@ -1,7 +1,7 @@
 #pragma once
 
-#include "monad.h"
-#include "monoid.h"
+#include "monaid/monad.h"
+#include "monaid/monoid.h"
 
 #include <cassert>
 
@@ -24,9 +24,10 @@ struct Maybe:Monad<Maybe>,Monoid {
   }
   auto bind(const auto& f) const {
     // auto x=f(m_value);
-    if(m_isJust) return Maybe<typename decltype(f(m_value))::Type>(f(m_value));
-    else return Maybe<typename decltype(f(m_value))::Type>{};
+    if(m_isJust) return Maybe<decltype(f(m_value))>(f(m_value));
+    else return Maybe<decltype(f(m_value))>{};
   }
+  template<typename F> auto operator>>(const F f) const {return bind(f);};
   auto liftM2(const auto& f,auto&& mb) {
     if(m_isJust&&mb.m_isJust)
       return Maybe<decltype(f(m_value,mb.m_value))>

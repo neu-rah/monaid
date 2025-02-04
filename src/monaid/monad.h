@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base.h"
+#include "monaid/base.h"
 
 constexpr const auto pure(auto o){return Param(fw$(o));}//Monad
 
@@ -35,3 +35,4 @@ template<template<typename...> class M> struct Applicative:Functor<M> {
   auto liftM2(auto f,auto ma,auto mb) const {return ma.liftM2(f,mb);}
 };
 template<template<typename...> class M> struct Monad:Applicative<M> {};
+

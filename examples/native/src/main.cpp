@@ -1,12 +1,12 @@
+#include <monaid.h>
 #include <iostream>
-#include <concepts>
-#include <iterator>
-#include <functional>
-
-#include <lplus.h>
 using namespace std;
 
 int main() {
-  //run the tests
+  cout<<(
+    Just(2)
+      >>( [](auto o) {return 2*o;})
+      >>( [](auto o) {return 3.1*o;})
+  )<<endl;
   return 0;
 }
