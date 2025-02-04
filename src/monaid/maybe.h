@@ -8,11 +8,11 @@
 template<typename O=Empty>
 struct Maybe:Monad<Maybe>,Monoid {
   using Type=O;
-  Type m_value{};
+  Type m_value;
   bool m_isJust{false};
   constexpr Maybe(){}
   constexpr Maybe(O o) requires(!std::is_same_v<O,Empty>):m_value{o},m_isJust{true}{}
-  constexpr Maybe(const Empty&):m_value{}{}
+  constexpr Maybe(const Empty&):m_value{},m_isJust{false}{}
   constexpr Maybe(const Param<O>& o):m_value{o.m_param},m_isJust{true}{}
   template<typename K>
   requires(std::is_same_v<O,Empty>)
@@ -22,10 +22,11 @@ struct Maybe:Monad<Maybe>,Monoid {
     if(m_isJust) return Maybe<decltype(f(m_value))>(f(m_value));
     else return Maybe<decltype(f(m_value))>();
   }
-  auto bind(const auto& f) const {
-    // auto x=f(m_value);
-    if(m_isJust) return Maybe<decltype(f(m_value))>(f(m_value));
-    else return Maybe<decltype(f(m_value))>{};
+  auto bind(const auto& f) const requires(std::is_same_v<O,Empty>) 
+    {return *this;}
+  auto bind(const auto& f) const requires(!std::is_same_v<O,Empty>) {
+    if(m_isJust) return Maybe<typename decltype(f(m_value))::Type>(f(m_value));
+    else return Maybe<typename decltype(f(m_value))::Type>{};
   }
   template<typename F> auto operator>>(const F f) const {return bind(f);};
   auto liftM2(const auto& f,auto&& mb) {

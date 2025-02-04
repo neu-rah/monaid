@@ -8,5 +8,19 @@
 			"path": "examples/native"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"bitset": "cpp",
+			"iterator": "cpp",
+			"functional": "cpp",
+			"istream": "cpp",
+			"ostream": "cpp",
+			"streambuf": "cpp",
+			"type_traits": "cpp",
+			"utility": "cpp",
+			"algorithm": "cpp",
+			"ios": "cpp",
+			"locale": "cpp"
+		}
+	}
 }

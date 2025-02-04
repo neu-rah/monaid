@@ -10,5 +10,5 @@ constexpr const auto $(const auto&& f,auto&&... oo)
 
 constexpr const auto $(const auto&& f,auto&&... oo)
   requires(!std::is_invocable_v<decltype(f),decltype(oo)...>)
-  {return [&f,&oo...](auto&&... pp){return $(fw$(f),fw$$(oo),fw$$(pp));};}
+  {return [&f,&oo...](auto&&... pp) {return $(fw$(f),fw$$(oo),fw$$(pp));};}
 

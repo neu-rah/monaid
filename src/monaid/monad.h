@@ -36,3 +36,5 @@ template<template<typename...> class M> struct Applicative:Functor<M> {
 };
 template<template<typename...> class M> struct Monad:Applicative<M> {};
 
+// template<aMonad M,typename F> auto operator>>(const M m,const F f) {return m.bind(f);};
+
