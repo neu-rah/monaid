@@ -20,7 +20,8 @@
 			"utility": "cpp",
 			"algorithm": "cpp",
 			"ios": "cpp",
-			"locale": "cpp"
+			"locale": "cpp",
+			"iostream": "cpp"
 		}
 	}
 }
