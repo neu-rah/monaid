@@ -1,6 +1,6 @@
 {
   "name": "Monaid",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Monads and monoids under C++23",
   "keywords": "functional programing, ",
   "repository":
