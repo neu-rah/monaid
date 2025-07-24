@@ -16,11 +16,12 @@ Implemented this stuff while exploring C++23, just for fun
 
 ## examples
 
-**successful computation**
 ```c++
 #include <monaid.h>
 #include <iostream>
 using namespace std;
+
+//library tests are also included in this example (folder /test)
 
 auto _const{$([](auto o,auto) {return o;})};
 
@@ -40,9 +41,9 @@ int main() {
   )<<endl;
 
   cout<<"failing computation with error message:"<<(
-    Either<int,const char*>(2)
+    Either<const char*,int>(2)
       >>( [](auto o) {return pure(2*o);})
-      >>(_const(Left<int,const char*>("failing, just because.")))//computation that will fail!
+      >>(_const(Left<const char*,int>("failing, just because.")))//computation that will fail!
       >>( [](auto o) {return pure((double)3.1*o);} )//changing type int->double
   )<<endl;
 
