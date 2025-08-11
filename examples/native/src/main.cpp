@@ -4,7 +4,7 @@ using namespace std;
 
 //library tests are also included in this example (folder /test)
 
-auto _const{$([](auto o,auto) {return o;})};
+const auto const_{$([](auto o,auto) {return o;})};
 
 int main() {
   cout<<"Monad bind"<<endl;
@@ -17,14 +17,14 @@ int main() {
   cout<<"failing computation:"<<(
     Just(2)
       >>( [](auto o) {return pure(2*o);})
-      >>(_const(mempty))//computation that will fail!
+      >>(const_(mempty))//computation that will fail!
       >>( [](auto o) {return pure((double)3.1*o);} )//changing type int->double
   )<<endl;
 
   cout<<"failing computation with error message:"<<(
     Either<const char*,int>(2)
       >>( [](auto o) {return pure(2*o);})
-      >>(_const(Left<const char*,int>("failing, just because.")))//computation that will fail!
+      >>(const_(Left<const char*,int>("failing, just because.")))//computation that will fail!
       >>( [](auto o) {return pure((double)3.1*o);} )//changing type int->double
   )<<endl;
 

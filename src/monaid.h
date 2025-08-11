@@ -1,6 +1,8 @@
 #pragma once
 
 #include "monaid/base.h"
+#include "monaid/lazy.h"
+#include "monaid/combinators.h"
 #include "monaid/curry.h"
 #include "monaid/params.h"
 #include "monaid/monoid.h"

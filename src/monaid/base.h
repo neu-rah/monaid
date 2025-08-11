@@ -3,6 +3,8 @@
 #include <functional>
 #include <type_traits>
 
+#define cex constexpr
+
 #define fw$$(oo) std::forward<decltype(oo)>(oo)...
 #define fw$(o) std::forward<decltype(o)>(o)
 #define t$(o) decltype(o)

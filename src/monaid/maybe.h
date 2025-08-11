@@ -55,9 +55,11 @@ template<typename O> struct Nothing:Maybe<O>{
   // using Maybe<O>::Maybe;
 };
 
-bool isJust(Maybe<auto> o) {return o.m_isJust;}
-bool isNothing(Maybe<auto> o) {return !isJust(o);}
-auto fromJust(Maybe<auto> o) {assert(o.m_isJust);return o.m_value;}
+bool isJust(const Maybe<auto> o) {return o.m_isJust;}
+bool isNothing(const Maybe<auto> o) {return !isJust(o);}
+bool isJust(const auto o) {return false;}
+bool isNothing(const auto o) {return false;}
+auto fromJust(const auto o) {assert(o.m_isJust);return o.m_value;}
 
 template<typename Out,typename O>
 Out& operator<<(Out& out,const Maybe<O>& o) {return o.operator<<(out);}
@@ -66,3 +68,4 @@ Out& operator<<(Out& out,const Just<O>& o) {return o.operator<<(out);}
 template<typename Out,typename O>
 Out& operator<<(Out& out,const Nothing<O>& o) {return o.operator<<(out);}
 
+template<typename O> auto operator||(const Maybe<O> a,const Maybe<O> b) {return a.isJust()?a:b;}

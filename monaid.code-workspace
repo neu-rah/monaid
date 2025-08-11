@@ -4,24 +4,37 @@
 			"path": "."
 		},
 		{
+			"name": "lazy",
+			"path": "examples/lazy"
+		},
+		{
 			"name": "native",
 			"path": "examples/native"
 		}
 	],
 	"settings": {
 		"files.associations": {
-			"bitset": "cpp",
+			"array": "cpp",
+			"atomic": "cpp",
+			"cwchar": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"exception": "cpp",
 			"iterator": "cpp",
 			"functional": "cpp",
+			"initializer_list": "cpp",
+			"iosfwd": "cpp",
 			"istream": "cpp",
+			"new": "cpp",
 			"ostream": "cpp",
+			"stdexcept": "cpp",
 			"streambuf": "cpp",
+			"tuple": "cpp",
 			"type_traits": "cpp",
 			"utility": "cpp",
-			"algorithm": "cpp",
-			"ios": "cpp",
-			"locale": "cpp",
-			"iostream": "cpp"
+			"iostream": "cpp",
+			"random": "cpp",
+			"cmath": "cpp"
 		}
 	}
 }
